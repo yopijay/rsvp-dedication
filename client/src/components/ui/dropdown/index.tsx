@@ -1,8 +1,6 @@
 "use client";
 
 import { DropdownOption, DropdownProps } from "@/src/types/dropdown";
-import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Field from "../field";
 import {
@@ -170,11 +168,9 @@ const Dropdown = ({
                         placeholder || "Select an option"
                     )}
                 </p>
-                {isDropdownOpen ? (
-                    <FontAwesomeIcon icon={faChevronUp} color="#6b7280" />
-                ) : (
-                    <FontAwesomeIcon icon={faChevronDown} color="#6b7280" />
-                )}
+                <span className="text-[#6b7280] leading-none" aria-hidden="true">
+                    {isDropdownOpen ? "▴" : "▾"}
+                </span>
             </div>
             {isDropdownOpen && (
                 <div
