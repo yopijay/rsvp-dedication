@@ -1,26 +1,83 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+    font-family: "Brittany Signature";
+    src: url("/fonts/brittany_signature/BrittanySignature.ttf")
+        format("truetype");
+    font-display: swap;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+    font-family: "Keshia";
+    src:
+        url("/fonts/keshia_2/Keshia.otf") format("opentype"),
+        url("/fonts/keshia_2/Keshia.ttf") format("truetype");
+    font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+    font-family: "Papernotes";
+    src:
+        url("/fonts/papernotes/Papernotes.woff2") format("woff2"),
+        url("/fonts/papernotes/PapernotesRegular.woff") format("woff"),
+        url("/fonts/papernotes/Papernotes.otf") format("opentype"),
+        url("/fonts/papernotes/Papernotes.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Papernotes";
+    src:
+        url("/fonts/papernotes/Papernotes Bold.woff2") format("woff2"),
+        url("/fonts/papernotes/PapernotesBold.woff") format("woff"),
+        url("/fonts/papernotes/Papernotes Bold.otf") format("opentype"),
+        url("/fonts/papernotes/Papernotes Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Papernotes Sketch";
+    src:
+        url("/fonts/papernotes/Papernotes Sketch.woff2") format("woff2"),
+        url("/fonts/papernotes/Papernotes Sketch.otf") format("opentype"),
+        url("/fonts/papernotes/Papernotes Sketch.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Simple Handmade";
+    src:
+        url("/fonts/simple_handmade_2/SimpleHandmade.otf") format("opentype"),
+        url("/fonts/simple_handmade_2/SimpleHandmade.ttf") format("truetype");
+    font-display: swap;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.font-brittany-signature {
+    font-family: "Brittany Signature", cursive;
+}
+
+.font-keshia {
+    font-family: "Keshia", cursive;
+}
+
+.font-papernotes {
+    font-family: "Papernotes", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.font-papernotes-sketch {
+    font-family:
+        "Papernotes Sketch", "Papernotes", "Segoe UI", Tahoma, Geneva, Verdana,
+        sans-serif;
+}
+
+.font-simple-handmade {
+    font-family: "Simple Handmade", cursive;
 }

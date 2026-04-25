@@ -1,5 +1,43 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Font Credits
+
+The following local fonts are included in this project under `public/fonts`.
+
+### Brittany Signature
+
+- Files: `public/fonts/brittany_signature/BrittanySignature.ttf`
+- Author/Foundry: Creatype Studio
+- Source: https://creatypestudio.co/brittany
+- License note from bundled readme: FULL VERSION, personal use only. Commercial use is not allowed without purchasing a commercial/corporate license.
+- Contact: foundry@creatypestudio.co
+
+### Keshia
+
+- Files: `public/fonts/keshia_2/Keshia.otf`, `public/fonts/keshia_2/Keshia.ttf`
+- Author/Foundry: Graphix Line Studio
+- Source: https://www.creativefabrica.com/product/keshia-2/ref/182378/
+- License note from bundled readme: personal use only. A commercial license is required for production/commercial use.
+- Contact: aldirayapradipta@gmail.com
+
+### Papernotes (Regular, Bold, Sketch)
+
+- Files: `public/fonts/papernotes/*`
+- Source/author/license: no license/readme file was bundled in this repository folder.
+- Action required: verify Papernotes licensing and attribution details from the original download/source before deployment.
+
+### Simple Handmade
+
+- Files: `public/fonts/simple_handmade_2/SimpleHandmade.otf`, `public/fonts/simple_handmade_2/SimpleHandmade.ttf`
+- Author/Foundry: Letter Art Studio
+- Source: https://www.creativefabrica.com/product/simple-handmade-3/
+- License note from bundled readme: demo font for personal use only. Extended/corporate license required for broader use.
+- Contact: sugiharto.art17@gmail.com
+
+## Deployment Licensing Reminder
+
+Before releasing publicly, confirm each font's webfont rights, redistribution rights, and commercial usage permissions.
+
 ## Getting Started
 
 First, run the development server:
