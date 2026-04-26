@@ -52,7 +52,7 @@ const InvitationCard = () => {
                     />
                 </div>
                 <div className="flex flex-col gap-y-6 text-center">
-                    <p className="text-7xl font-bold -mt-10 text-[#3F6F9B] leading-none text-center font-brittany-signature z-10">
+                    <p className="text-5xl lg:text-7xl font-bold -mt-10 text-[#3F6F9B] leading-none text-center font-brittany-signature z-10">
                         Isaiah Kai
                     </p>
                     <p className="text-sm text-[#6E9CC6] leading-none text-center font-papernotes z-10">

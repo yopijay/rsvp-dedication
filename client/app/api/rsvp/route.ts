@@ -1,8 +1,10 @@
+import { sendRsvpEmails } from "@/src/lib/email/rsvpMailer";
 import { rsvpSchema } from "@/src/lib/validation/rsvp";
 import { neon } from "@neondatabase/serverless";
 import { NextResponse } from "next/server";
 
 const databaseUrl = process.env.DATABASE_URL;
+export const runtime = "nodejs";
 
 export async function POST(request: Request) {
     if (!databaseUrl) {
@@ -74,7 +76,17 @@ export async function POST(request: Request) {
             RETURNING id
         `;
 
-        return NextResponse.json({ ok: true, id: rows[0]?.id ?? null });
+        const emailResult = await sendRsvpEmails(parsed.data);
+
+        if (emailResult.error) {
+            console.error("RSVP saved but email failed", emailResult.error);
+        }
+
+        return NextResponse.json({
+            ok: true,
+            id: rows[0]?.id ?? null,
+            email: emailResult,
+        });
     } catch (error) {
         console.error("Failed to save RSVP", error);
 

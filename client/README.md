@@ -72,3 +72,25 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## RSVP Backend Setup
+
+The RSVP form saves to Postgres and can send confirmation emails.
+
+1. Copy `.env.example` to `.env.local` for local development.
+2. Configure database and SMTP values.
+3. In Vercel, add the same variables in Project Settings -> Environment Variables.
+
+### Required Variables
+
+- `DATABASE_URL`
+
+### Email Variables (Step 3)
+
+- `SMTP_HOST` (default for Gmail: `smtp.gmail.com`)
+- `SMTP_PORT` (default for Gmail SSL: `465`)
+- `SMTP_SECURE` (`true` for port `465`)
+- `SMTP_USER` (your Gmail address)
+- `SMTP_PASS` (Gmail App Password, not your normal account password)
+- `SMTP_FROM` (optional sender address, defaults to `SMTP_USER`)
+- `RSVP_NOTIFY_TO` (optional organizer notification recipient)

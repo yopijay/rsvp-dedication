@@ -117,7 +117,7 @@ const PleaseRespond = () => {
                             variant="outlined"
                             className="font-papernotes"
                         />
-                        <p className="text-sm text-right pr-3 text-red-400">
+                        <p className="text-sm text-right pr-3 text-red-400 font-papernotes">
                             {errors.fullName?.message ?? ""}
                         </p>
                     </div>
@@ -132,7 +132,7 @@ const PleaseRespond = () => {
                             type="email"
                             className="font-papernotes"
                         />
-                        <p className="text-sm text-right pr-3 text-red-400">
+                        <p className="text-sm text-right pr-3 text-red-400 font-papernotes">
                             {errors.email?.message ?? ""}
                         </p>
                     </div>

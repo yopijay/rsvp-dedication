@@ -168,7 +168,10 @@ const Dropdown = ({
                         placeholder || "Select an option"
                     )}
                 </p>
-                <span className="text-[#6b7280] leading-none" aria-hidden="true">
+                <span
+                    className="text-[#6b7280] leading-none"
+                    aria-hidden="true"
+                >
                     {isDropdownOpen ? "▴" : "▾"}
                 </span>
             </div>
