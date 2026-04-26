@@ -5,11 +5,6 @@ export const metadata: Metadata = {
     title: "Isaiah Kai Judan | Baby Dedication",
     description:
         "Join us in celebrating the dedication of Isaiah Kai Judan. You are warmly invited to witness and share in this special blessing.",
-    icons: {
-        icon: "/images/invitation-tab-logo.png",
-        shortcut: "/images/invitation-tab-logo.png",
-        apple: "/images/invitation-tab-logo.png",
-    },
     keywords: [
         "baby dedication",
         "Isaiah Kai Judan",

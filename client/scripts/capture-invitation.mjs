@@ -8,10 +8,6 @@ const INVITATION_OUTPUT_PATH = path.resolve(
     process.cwd(),
     "public/images/invitation-card-email.png"
 );
-const TAB_LOGO_OUTPUT_PATH = path.resolve(
-    process.cwd(),
-    "public/images/invitation-tab-logo.png"
-);
 
 const run = async () => {
     const browser = await chromium.launch({ headless: true });
@@ -26,17 +22,15 @@ const run = async () => {
         await page.waitForTimeout(500);
 
         const card = page.locator('[data-invitation-capture="email-card"]');
-        const tabLogo = page.locator('[data-invitation-logo-capture="tab-logo"]');
 
         await card.waitFor({ state: "visible" });
-        await tabLogo.waitFor({ state: "visible" });
 
-        await fs.mkdir(path.dirname(INVITATION_OUTPUT_PATH), { recursive: true });
+        await fs.mkdir(path.dirname(INVITATION_OUTPUT_PATH), {
+            recursive: true,
+        });
         await card.screenshot({ path: INVITATION_OUTPUT_PATH, type: "png" });
-        await tabLogo.screenshot({ path: TAB_LOGO_OUTPUT_PATH, type: "png" });
 
         console.log(`Invitation image generated at: ${INVITATION_OUTPUT_PATH}`);
-        console.log(`Tab logo generated at: ${TAB_LOGO_OUTPUT_PATH}`);
     } finally {
         await browser.close();
     }
