@@ -1,9 +1,17 @@
 import Banderitas from "@public/images/banderitas.png";
 import Image from "next/image";
 
-const InvitationCard = () => {
+type InvitationCardProps = {
+    className?: string;
+    captureId?: string;
+};
+
+const InvitationCard = ({ className, captureId }: InvitationCardProps) => {
     return (
-        <div className="flex flex-col bg-white rounded-lg shadow-lg w-full sm:max-w-[412px] sm:mx-auto relative min-h-125 overflow-hidden">
+        <div
+            data-invitation-capture={captureId}
+            className={`flex flex-col bg-white rounded-lg shadow-lg w-full sm:max-w-103 sm:mx-auto relative min-h-125 overflow-hidden ${className ?? ""}`.trim()}
+        >
             <Image
                 src={Banderitas}
                 alt="Banderitas"
