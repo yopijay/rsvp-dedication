@@ -1,6 +1,6 @@
 import { rsvpSchema, type RsvpFormValues } from "@/src/lib/validation/rsvp";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import Button from "../ui/button";
 import Field from "../ui/field";
@@ -37,6 +37,20 @@ const PleaseRespond = () => {
         type: "success" | "error";
         text: string;
     } | null>(null);
+
+    useEffect(() => {
+        if (submitMessage?.type !== "success") {
+            return;
+        }
+
+        const timeoutId = window.setTimeout(() => {
+            setSubmitMessage(null);
+        }, 4000);
+
+        return () => {
+            window.clearTimeout(timeoutId);
+        };
+    }, [submitMessage]);
 
     const setAdults = (nextValues: string[]) => {
         setValue("adults", nextValues, {

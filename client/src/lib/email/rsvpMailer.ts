@@ -15,6 +15,14 @@ const formatNameList = (names: string[]) => {
     return names.length > 0 ? names.join(", ") : "None";
 };
 
+const formatGodParentText = (value: RsvpFormValues["isGodParent"]) => {
+    if (!value) {
+        return "No preference";
+    }
+
+    return value.charAt(0).toUpperCase() + value.slice(1);
+};
+
 const invitationCardCid = "invitation-card@isaiahkai";
 
 const escapeHtml = (value: string) => {
@@ -312,7 +320,7 @@ export const sendRsvpEmails = async (
 
     const attendance =
         rsvp.isComing === "yes" ? "Count Me In" : "I Can't Make It";
-    const godParentText = rsvp.isGodParent ? rsvp.isGodParent : "No preference";
+    const godParentText = formatGodParentText(rsvp.isGodParent);
 
     const invitationImagePath = getInvitationImagePath();
     const hasInvitationImage = fs.existsSync(invitationImagePath);
