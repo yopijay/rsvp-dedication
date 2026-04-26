@@ -4,9 +4,14 @@ import Image from "next/image";
 type InvitationCardProps = {
     className?: string;
     captureId?: string;
+    logoCaptureId?: string;
 };
 
-const InvitationCard = ({ className, captureId }: InvitationCardProps) => {
+const InvitationCard = ({
+    className,
+    captureId,
+    logoCaptureId,
+}: InvitationCardProps) => {
     return (
         <div
             data-invitation-capture={captureId}
@@ -39,7 +44,10 @@ const InvitationCard = ({ className, captureId }: InvitationCardProps) => {
                         </p>
                     </div>
                 </div>
-                <div className="relative h-70 w-70 sm:h-80 sm:w-80">
+                <div
+                    data-invitation-logo-capture={logoCaptureId}
+                    className="relative h-70 w-70 sm:h-80 sm:w-80"
+                >
                     <div className="absolute inset-y-[14%] inset-x-[12.5%] overflow-hidden rounded-[44%]">
                         <Image
                             src="/images/iskai.jpeg"

@@ -4,9 +4,13 @@ import { chromium } from "playwright";
 
 const BASE_URL = process.env.CAPTURE_BASE_URL ?? "http://localhost:3000";
 const PAGE_URL = `${BASE_URL}/invitation-preview`;
-const OUTPUT_PATH = path.resolve(
+const INVITATION_OUTPUT_PATH = path.resolve(
     process.cwd(),
     "public/images/invitation-card-email.png"
+);
+const TAB_LOGO_OUTPUT_PATH = path.resolve(
+    process.cwd(),
+    "public/images/invitation-tab-logo.png"
 );
 
 const run = async () => {
@@ -22,12 +26,17 @@ const run = async () => {
         await page.waitForTimeout(500);
 
         const card = page.locator('[data-invitation-capture="email-card"]');
+        const tabLogo = page.locator('[data-invitation-logo-capture="tab-logo"]');
+
         await card.waitFor({ state: "visible" });
+        await tabLogo.waitFor({ state: "visible" });
 
-        await fs.mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
-        await card.screenshot({ path: OUTPUT_PATH, type: "png" });
+        await fs.mkdir(path.dirname(INVITATION_OUTPUT_PATH), { recursive: true });
+        await card.screenshot({ path: INVITATION_OUTPUT_PATH, type: "png" });
+        await tabLogo.screenshot({ path: TAB_LOGO_OUTPUT_PATH, type: "png" });
 
-        console.log(`Invitation image generated at: ${OUTPUT_PATH}`);
+        console.log(`Invitation image generated at: ${INVITATION_OUTPUT_PATH}`);
+        console.log(`Tab logo generated at: ${TAB_LOGO_OUTPUT_PATH}`);
     } finally {
         await browser.close();
     }
