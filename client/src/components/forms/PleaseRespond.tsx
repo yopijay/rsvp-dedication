@@ -97,9 +97,15 @@ const PleaseRespond = () => {
         });
         setAdultInput("");
         setKidInput("");
+
+        const successText =
+            data.isComing === "yes"
+                ? "Wonderful, you're on the guest list. We can't wait to celebrate with you."
+                : "Thank you for letting us know. You'll still be in our prayers as we celebrate Isaiah Kai's dedication.";
+
         setSubmitMessage({
             type: "success",
-            text: "RSVP received. Thank you!",
+            text: successText,
         });
     };
 
