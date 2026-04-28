@@ -159,15 +159,20 @@ const PleaseRespond = () => {
                     <div className="flex flex-col gap-y-1">
                         <label className="font-papernotes text-[#3F6F9B] leading-none ">
                             Will you bring someone with you? (Adults and kids
-                            can be added separately)
+                            can be added separately. Leave blank if you will not
+                            bring anyone.)
                         </label>
                         <div className="flex flex-col sm:flex-row gap-3">
                             <CapsuleField
-                                label="Adults"
+                                label="Adults (8 and up)"
                                 placeholder=""
                                 values={adults}
                                 inputValue={adultInput}
-                                onInputChange={setAdultInput}
+                                onInputChange={(val) => {
+                                    // Prevent numbers in input
+                                    if (/\d/.test(val)) return;
+                                    setAdultInput(val);
+                                }}
                                 onAddValue={() =>
                                     addName(
                                         adultInput,
@@ -183,11 +188,15 @@ const PleaseRespond = () => {
                                 }
                             />
                             <CapsuleField
-                                label="Kids"
+                                label="Kids (3-7)"
                                 placeholder=""
                                 values={kids}
                                 inputValue={kidInput}
-                                onInputChange={setKidInput}
+                                onInputChange={(val) => {
+                                    // Prevent numbers in input
+                                    if (/\d/.test(val)) return;
+                                    setKidInput(val);
+                                }}
                                 onAddValue={() =>
                                     addName(kidInput, kids, setKids, () => {
                                         setKidInput("");
