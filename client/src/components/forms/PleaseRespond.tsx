@@ -109,6 +109,10 @@ const PleaseRespond = () => {
         });
     };
 
+    // RSVP deadline: May 1, 2026 (month is 0-indexed)
+    const RSVP_DEADLINE = new Date(2026, 4, 1, 23, 59, 59, 999);
+    const [isPastDeadline] = useState(() => new Date() > RSVP_DEADLINE);
+
     return (
         <div className="w-full flex flex-col justify-center gap-y-5 sm:max-w-103 sm:mx-auto">
             <div className="flex flex-col gap-y-2">
@@ -317,16 +321,23 @@ const PleaseRespond = () => {
                         </div>
                     </div>
                 </div>
-                <Button
-                    type="submit"
-                    variant="filled"
-                    isRounded
-                    bgColor="#3F6F9B"
-                    disabled={isSubmitting}
-                    className="text-white mt-4 w-full font-simple-handmade uppercase cursor-pointer"
-                >
-                    {isSubmitting ? "Saving..." : "Confirm attendance"}
-                </Button>
+                {!isPastDeadline && (
+                    <Button
+                        type="submit"
+                        variant="filled"
+                        isRounded
+                        bgColor="#3F6F9B"
+                        disabled={isSubmitting}
+                        className="text-white mt-4 w-full font-simple-handmade uppercase cursor-pointer"
+                    >
+                        {isSubmitting ? "Saving..." : "Confirm attendance"}
+                    </Button>
+                )}
+                {isPastDeadline && (
+                    <p className="text-center text-red-500 font-papernotes mt-4">
+                        RSVP is now closed. Thank you for your interest!
+                    </p>
+                )}
                 {submitMessage && (
                     <p
                         className={`text-sm text-center font-papernotes ${
